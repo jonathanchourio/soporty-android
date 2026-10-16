@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Soporty</string>
+    <string name="join_title">Sesión de soporte</string>
+    <string name="join_sub">Escribe el código de 9 números que te dio tu técnico.</string>
+    <string name="code_hint">123 456 789</string>
+    <string name="name_hint">Tu nombre</string>
+    <string name="consent">Autorizo que el técnico me escuche y vea mi pantalla solo cuando yo la comparta. Puedo terminar cuando quiera.</string>
+    <string name="join">Entrar a la sesión</string>
+    <string name="share">Compartir pantalla</string>
+    <string name="stop_share">Dejar de compartir</string>
+    <string name="mic_on">Micrófono activo · tocar para silenciar</string>
+    <string name="mic_off">Silenciado · tocar para hablar</string>
+    <string name="overlay">Ver las marcas del técnico sobre mi pantalla</string>
+    <string name="end">Terminar sesión</string>
+    <string name="send">Enviar</string>
+    <string name="msg_hint">Escribe un mensaje…</string>
+    <string name="channel">Sesión de soporte</string>
+    <string name="ended_title">La sesión terminó</string>
+    <string name="rate">Enviar calificación</string>
+    <string name="new_session">Nueva sesión</string>
+    <string name="privacy">Tu técnico solo puede ver tu pantalla, no puede tocar ni controlar tu teléfono.</string>
+</resources>
