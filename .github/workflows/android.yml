@@ -9,22 +9,26 @@ on:
 
 jobs:
   apk:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Descargar el proyecto
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Preparar Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Preparar Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Revisar Android SDK
+        # Las máquinas de GitHub ya traen el SDK de Android instalado
+        run: |
+          echo "ANDROID_HOME=${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          test -d "${ANDROID_HOME:-$ANDROID_SDK_ROOT}" || { echo "::error::No se encontró el SDK de Android"; exit 1; }
+          echo "sdk.dir=${ANDROID_HOME:-$ANDROID_SDK_ROOT}" > local.properties
 
       - name: Preparar Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Revisar la llave de firma
         env:
@@ -49,7 +53,7 @@ jobs:
           cp app/build/outputs/apk/release/app-release.apk "salida/soporty-1.0.${GITHUB_RUN_NUMBER}.apk"
 
       - name: Entregar el APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: soporty-apk-1.0.${{ github.run_number }}
           path: salida/*.apk
